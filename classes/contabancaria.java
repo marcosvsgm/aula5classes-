@@ -1,7 +1,26 @@
-package principal;
-public class App {
-   
-    // Exemplo de uso da herança
+package classes;
+
+ // Classe ContaBancaria - superclasse
+public class contabancaria {
+    protected double saldo;
+
+    public contabancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void depositar(double valor) {
+        saldo += valor;
+    }
+
+    public void sacar(double valor) {
+        saldo -= valor;
+    }
+
+// Exemplo de uso da herança
     public static void main(String[] args) {
         contacorrente cc = new contacorrente(1000, 500);
         cc.depositar(1000);
@@ -16,7 +35,4 @@ public class App {
         System.out.println("Saldo da conta poupança: " + cp.getSaldo());
         System.out.println("Taxa de juros da conta poupança: " + cp.getTaxaJuros());
     }
-}
-
-}
 }

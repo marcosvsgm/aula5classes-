@@ -1,25 +1,24 @@
 package classes;
 
- class contacorrente {
-    private double saldo;
+// Classe ContaCorrente - subclasse
+public class contacorrente extends contabancaria {
+    private double limite;
 
-    public contacorrente(double saldoInicial) {
-        this.saldo = saldoInicial;
+    public contacorrente(double saldoInicial, double limite) {
+        super(saldoInicial);
+        this.limite = limite;
     }
-    
-    public void depositar(double valor) {
-        this.saldo += valor;
+
+    public double getLimite() {
+        return limite;
     }
-    
+
+    @Override // Sobrescreve o método sacar da superclasse
     public void sacar(double valor) {
-        if (valor > this.saldo) {
+        if (valor > (saldo + limite)) {
             System.out.println("Saldo insuficiente.");
         } else {
-            this.saldo -= valor;
+            saldo -= valor;
         }
-    }
-
-    public double getSaldo() {
-        return this.saldo;
     }
 }
